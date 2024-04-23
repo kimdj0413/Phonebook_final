@@ -25,11 +25,10 @@ public class Error {
         this.scan = scan;
         while (true) {
             try {
-                scan.nextLine();
                 System.out.print("전화번호(ex: 01012345678) : ");
                 tempNum = scan.nextLine();
-                if (tempNum.startsWith("010") == false) {
-                    throw new NumberException("010으로 시작하세요!");
+                if (tempNum.matches("\\d+") == false) {
+                    throw new NumberException("숫자만 입력하세요!");
                 }
                 break;
             } catch (NumberException e) {

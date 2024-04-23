@@ -32,7 +32,6 @@ public class Phonebook {
                 menu.Main();
                 menuNum = scan.nextInt();
             } catch (InputMismatchException e) {
-                // System.out.println("\n1 ~ 5번 숫자를 입력해주세요!");
                 scan.nextLine();
             }
 
@@ -49,7 +48,6 @@ public class Phonebook {
                                 + hashMap.get(key).getRelation());
                     }
                     continue;
-
                 case 3:
                     edit.editData();
                     continue;

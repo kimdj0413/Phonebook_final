@@ -68,6 +68,7 @@ public class Edit {
                     + hashMap.get(list.get(i)).getNumber() + ", 주소 : " + hashMap.get(list.get(i)).getAddress() + ", 관계 : "
                     + hashMap.get(list.get(i)).getRelation());
         }
+        System.out.print("수정할 회원 번호를 입력하세요: ");
         int index = scan.nextInt();
         System.out.print("수정할 정보를 입력하세요.\n");
         tempNum = error.NumberException(tempNum, scan);
