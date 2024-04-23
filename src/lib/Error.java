@@ -25,7 +25,8 @@ public class Error {
         this.scan = scan;
         while (true) {
             try {
-                System.out.print("번호를 입력하세요 : ");
+                scan.nextLine();
+                System.out.print("전화번호(ex: 01012345678) : ");
                 tempNum = scan.nextLine();
                 if (tempNum.startsWith("010") == false) {
                     throw new NumberException("010으로 시작하세요!");
@@ -43,7 +44,7 @@ public class Error {
         this.scan = scan;
         while (true) {
             try {
-                System.out.print("관계를 입력하세요 : ");
+                System.out.print("관계(ex. 가족, 친구, 회사, 기타) : ");
                 tempClass = scan.nextLine();
                 if (!Arrays.asList("가족", "친구", "회사", "기타").contains(tempClass)) {
                     throw new RelationException("가족, 친구, 회사, 기타 중 하나를 입력하세요!");

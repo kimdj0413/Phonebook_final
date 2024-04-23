@@ -15,7 +15,7 @@ public class Phonebook {
         Scanner scan = new Scanner(System.in);
 
         int keyCnt = 0;
-        int keyTemp = 0;
+        String keyTemp = "";
         int menuNum = 0;
         String dummy = "";
         String tempName = "";
@@ -25,34 +25,33 @@ public class Phonebook {
         String query;
         boolean go = true;
 
-        HashMap<Integer, Info> hashMap = new HashMap<Integer, Info>();
+        HashMap<String, Info> hashMap = new HashMap<String, Info>();
 
         while (go) {
             try {
                 menu.Main();
                 menuNum = scan.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("\n1 ~ 5번 숫자를 입력해주세요!");
+                // System.out.println("\n1 ~ 5번 숫자를 입력해주세요!");
                 scan.nextLine();
             }
 
             switch (menuNum) {
-                case 1:
-                    for (Integer key : hashMap.keySet()) {
-                        System.out.println("이름 : " + hashMap.get(key).getName() + "\t번호 : "
-                                + hashMap.get(key).getNumber() + "\t주소 : " + hashMap.get(key).getAddress() + "\t관계 : "
+                case 1:                
+                    dummy = scan.nextLine();
+                    edit.inputData(scan, hashMap, keyTemp);
+                    keyCnt++;
+                    continue;
+                case 2:
+                    for (String key : hashMap.keySet()) {
+                        System.out.println("회원정보 : 이름 = " + hashMap.get(key).getName() + ", 전화번호 : "
+                                + hashMap.get(key).getNumber() + ", 주소 : " + hashMap.get(key).getAddress() + ", 관계 : "
                                 + hashMap.get(key).getRelation());
                     }
                     continue;
-                case 2:
-                    tempName = menu.Edit(dummy, scan, tempName);
-                    keyTemp = edit.forEqual(tempName, keyTemp, hashMap);
-                    edit.inputData(scan, hashMap, keyTemp);
-                    continue;
+
                 case 3:
-                    dummy = scan.nextLine();
-                    edit.inputData(scan, hashMap, keyCnt);
-                    keyCnt++;
+                    edit.editData();
                     continue;
                 case 4:
                     tempName = menu.Delete(dummy, scan, tempName);
